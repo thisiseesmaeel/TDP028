@@ -1,6 +1,6 @@
 # TDP028-Android Project
 
-##Details
+## Details
 
 Informera is a community-driven app for reporting and informing the incidents as it happens in the nearby. The incidents and events will be shown as soon as it gets updated with the exact date and time. 
 
