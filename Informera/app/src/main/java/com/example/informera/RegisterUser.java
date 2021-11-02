@@ -16,7 +16,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView create_acc_text, already_registered_text, signupButton2;
+    private TextView create_acc_text, already_registered_text;
+    private Button signupButton2;
     private EditText editTextTextPersonName, editTextTextEmailAddress, editTextTextPassword;
     private ProgressBar progressBar2;
     private FirebaseAuth mAuth;
@@ -30,10 +31,10 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
         //create_acc_text = (TextView) findViewById(R.id.create_acc_text);
 
-        already_registered_text = findViewById(R.id.loginButton);
-        already_registered_text.setOnClickListener(this);
+        //already_registered_text = findViewById(R.id.loginButton);
+        //already_registered_text.setOnClickListener(this);
 
-        signupButton2 = findViewById(R.id.signupButton2);
+        signupButton2 = (Button) findViewById(R.id.signupButton2);
         signupButton2.setOnClickListener(this);
 
         editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
@@ -47,8 +48,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
 
     @SuppressLint("NonConstantResourceId")
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+    public void onClick(View v) {
+        switch (v.getId()) {
             case R.id.already_registered_text:
                 startActivity(new Intent(this, MainActivity.class));
                 break;
