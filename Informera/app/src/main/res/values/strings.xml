@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Informera</string>
-    <string name="default_web_client_id">984726756240-469evo33dr2fb0281etn1m7l9vjfolak.apps.googleusercontent.com</string>
+    <string name="todo">TODO</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="already_registered_log_in_here">Already Registered? Log in here.</string>
+    <string name="email">EMAIL</string>
+    <string name="name">NAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="sign_up">SIGN UP</string>
 </resources>

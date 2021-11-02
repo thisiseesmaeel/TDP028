@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "136782958352",
-    "project_id": "informera-d8d8a",
-    "storage_bucket": "informera-d8d8a.appspot.com"
+    "project_number": "471335300560",
+    "project_id": "auth-118a7",
+    "storage_bucket": "auth-118a7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:136782958352:android:25938d71a4dcd08cc11f95",
+        "mobilesdk_app_id": "1:471335300560:android:ea41cbbfb699b959e61dd5",
         "android_client_info": {
           "package_name": "com.example.informera"
         }
       },
       "oauth_client": [
         {
-          "client_id": "136782958352-8e7u8bnoi8do934hmfgfagm1i309p7l3.apps.googleusercontent.com",
+          "client_id": "471335300560-8tfunm13q1hceh9mga6p5rvflrqbkfmq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAiRv_xEIuY2yN8Qjyq5ORKIRgwg8bOgtY"
+          "current_key": "AIzaSyAJSib93yUo6Yq8AWne09i07-2WaVgK-as"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "136782958352-8e7u8bnoi8do934hmfgfagm1i309p7l3.apps.googleusercontent.com",
+              "client_id": "471335300560-8tfunm13q1hceh9mga6p5rvflrqbkfmq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
