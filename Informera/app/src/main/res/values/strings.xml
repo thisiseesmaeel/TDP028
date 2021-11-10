@@ -9,4 +9,5 @@
     <string name="name">NAME</string>
     <string name="password">PASSWORD</string>
     <string name="sign_up">SIGN UP</string>
+    <string name="log_in2">LOG IN</string>
 </resources>

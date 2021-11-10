@@ -20,10 +20,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class RegisterUser extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView create_acc_text, already_registered_text;
-    private Button signupButton2;
+    //private TextView create_acc_text, already_registered_text;
+    private Button signupButton;
     private EditText editTextTextPersonName, editTextTextEmailAddress, editTextTextPassword;
     private ProgressBar progressBar2;
     private FirebaseAuth mAuth;
@@ -40,8 +42,8 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         //already_registered_text = findViewById(R.id.loginButton);
         //already_registered_text.setOnClickListener(this);
 
-        signupButton2 = (Button) findViewById(R.id.signupButton2);
-        signupButton2.setOnClickListener(this);
+        signupButton = (Button) findViewById(R.id.signupButton);
+        signupButton.setOnClickListener(this);
 
         editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
@@ -56,15 +58,17 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.already_registered_text:
-                startActivity(new Intent(this, MainActivity.class));
-                break;
-            case R.id.signupButton2:
+            //case R.id.already_registered_text:
+              //  startActivity(new Intent(this, MainActivity.class));
+                //break;
+            case R.id.signupButton:
                 registerUser();
                 break;
         }
     }
 
+
+    // VALIDATIONS OF A USER WHEN SIGNING UP.
     private void registerUser() {
         String name = editTextTextPersonName.getText().toString().trim();
         String email = editTextTextEmailAddress.getText().toString().trim();
@@ -92,37 +96,37 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
         }
 
         progressBar2.setVisibility(View.VISIBLE);
-        mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
 
-                            if(task.isSuccessful()){
-                                User user = new User(name, email);
-
-                                FirebaseDatabase.getInstance().getReference("Users")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if(task.isSuccessful()){
-                                            Toast.makeText(RegisterUser.this, "User has been added successfully!", Toast.LENGTH_LONG).show();
-                                            progressBar2.setVisibility(View.GONE);
+                if(task.isSuccessful()){
+                    User user = new User(name, email);
+                    FirebaseDatabase.getInstance().getReference("Users")
+                            .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()) // Ger oss ID av den registrerade användaren.
+                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(RegisterUser.this, "User has been added successfully!", Toast.LENGTH_LONG).show();
+                                        progressBar2.setVisibility(View.GONE);
 
                                             // Skickar tillbaka till login sida!
-                                        }else {
-                                            Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
-                                            progressBar2.setVisibility(View.VISIBLE);
-                                        }
+                                    }else {
+                                        Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                        progressBar2.setVisibility(View.VISIBLE);
                                     }
-                                });
-                            }else {
-                                Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
-                                progressBar2.setVisibility(View.VISIBLE);
-                            }
+                                }
+                            });
+                }else {
+                    startActivity(new Intent(RegisterUser.this, MainActivity.class ));
 
-                        }
-                    });
+                    Toast.makeText(RegisterUser.this, "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                    progressBar2.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
     }
 }
 
