@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoggingIn extends AppCompatActivity implements  View.OnClickListener {
 
@@ -25,7 +26,7 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
 
     private FirebaseAuth mAuth;
 
-    private ProgressBar progressBar;
+    private ProgressBar progressBar3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
 
-        progressBar = findViewById(R.id.progressBar);
+        progressBar3 = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -79,14 +80,20 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
         }
 
 
-        progressBar.setVisibility(View.VISIBLE);
+        progressBar3.setVisibility(View.GONE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    //Skickar tillbaka till användarprofilen.
-                    startActivity(new Intent(LoggingIn.this, LoggingIn.class));
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if(user.isEmailVerified()) {
+                        //Skickar tillbaka till användarprofilen.
+                        startActivity(new Intent(LoggingIn.this, MainActivity.class));
+                    }else {
+                        user.sendEmailVerification();
+                        Toast.makeText(LoggingIn.this, "Check your email to verify your account!", Toast.LENGTH_LONG).show();
+                    }
                 }else {
                     Toast.makeText(LoggingIn.this, "Failed to login! Please check your credentials!", Toast.LENGTH_LONG).show();
                 }
