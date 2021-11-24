@@ -39,7 +39,7 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
         editTextTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextTextPassword = findViewById(R.id.editTextTextPassword);
 
-        progressBar3 = findViewById(R.id.progressBar);
+        progressBar3 = findViewById(R.id.progressBar3);
 
         mAuth = FirebaseAuth.getInstance();
     }
@@ -82,6 +82,7 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
 
         progressBar3.setVisibility(View.GONE);
 
+
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -89,7 +90,7 @@ public class LoggingIn extends AppCompatActivity implements  View.OnClickListene
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()) {
                         //Skickar tillbaka till användarprofilen.
-                        startActivity(new Intent(LoggingIn.this, MainActivity.class));
+                        startActivity(new Intent(LoggingIn.this, ProfileActivity.class));
                     }else {
                         user.sendEmailVerification();
                         Toast.makeText(LoggingIn.this, "Check your email to verify your account!", Toast.LENGTH_LONG).show();
