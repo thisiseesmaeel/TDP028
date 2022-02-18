@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark"
+    android:background="#10A698"
     android:layout_height="match_parent">
 
 
-
     <ImageView
-        android:layout_width="0dp"
         android:id="@+id/detailimage"
+        android:layout_width="0dp"
         android:layout_height="200dp"
-        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="TODO"
         android:src="@drawable/placeholder_image"
         app:layout_constraintStart_toStartOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck" />
 
 
 
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/detailimage"
-        app:cardBackgroundColor="#F48FB1"
+        app:cardBackgroundColor="#FF9800"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         app:cardElevation="8dp">
@@ -34,7 +35,7 @@
 
 
             <TextView
-                android:id="@+id/detailquiztitle"
+                android:id="@+id/detailkviztitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -42,7 +43,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/crimson_text"
-                android:text="Quiz Title"
+                android:text="Kviz Title"
                 android:textColor="#455A64"
                 android:textSize="25sp" />
 
@@ -50,8 +51,8 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_below="@id/detailquiztitle"
-                android:id="@+id/detailquizdesc"
+                android:layout_below="@id/detailkviztitle"
+                android:id="@+id/detailkvizdesc"
                 android:layout_height="wrap_content"
                 android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too a galley of type and scrambled it to make a type specimen book. "
                 android:fontFamily="@font/work_sans"
@@ -73,7 +74,7 @@
                 android:layout_alignParentRight="true"
                 android:id="@+id/detailleveltext"
                 android:textSize="15sp"
-                android:layout_below="@id/detailquizdesc"/>
+                android:layout_below="@id/detailkvizdesc"/>
 
 
             <TextView
@@ -110,7 +111,7 @@
                 android:text="Level"
                 android:id="@+id/detaillevel"
                 android:textSize="15sp"
-                android:layout_below="@id/detailquizdesc"/>
+                android:layout_below="@id/detailkvizdesc"/>
 
 
             <TextView
@@ -141,8 +142,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:layout_below="@id/detaillastscore"
-                android:text="Take Quiz"
-                android:id="@+id/detailtakequizbutton"
+                android:text="Take Kviz"
+                android:id="@+id/detailtakekvizbutton"
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/white" />
 

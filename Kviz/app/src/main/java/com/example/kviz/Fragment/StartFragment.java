@@ -2,20 +2,29 @@ package com.example.kviz.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.kviz.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link StartFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class StartFragment extends Fragment {
+    FirebaseAuth firebaseAuth;
+    NavController navController;
+    TextView startfeedback;
 
     public StartFragment() {
         // Required empty public constructor
@@ -26,5 +35,42 @@ public class StartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.startfragment, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        navController = Navigation.findNavController(view);
+
+        startfeedback = view.findViewById(R.id.startfeedtext);
+    }
+
+    // Lifecycle method (what happens when resuming the app)
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            firebaseAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()) {
+                        startfeedback.setText("Creating an account");
+                        navController.navigate(R.id.action_startFragment_to_listFragment);
+                    }
+                   else {
+                       startfeedback.setText(task.getException().toString());
+                    }
+                }
+            });
+        } else {
+            startfeedback.setText("Logging in");
+            navController.navigate(R.id.action_startFragment_to_listFragment);
+        }
     }
 }

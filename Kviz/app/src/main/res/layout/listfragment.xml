@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark">
+    android:background="#10A698">
 
 
     <TextView
@@ -12,7 +12,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/white"
-        android:text="Quiz App"
+        android:text="Kviz Me"
         android:fontFamily="@font/crimson_text"
         android:textSize="35sp"
         android:layout_margin="40dp"

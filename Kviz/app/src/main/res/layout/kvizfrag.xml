@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark"
+    android:background="#10A698"
     android:layout_height="match_parent">
 
 
@@ -25,13 +25,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cancelbutton"
-        android:text="Loading Quiz"
+        android:text="Loading Kviz"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:fontFamily="@font/crimson_text"
         android:textSize="38sp"
         android:gravity="center_horizontal"
-        android:id="@+id/quiztitlequiz"/>
+        android:id="@+id/kviztitlekviz"/>
 
 
 
@@ -39,7 +39,7 @@
     <ProgressBar
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:id="@+id/quizProgressBar"
+        android:id="@+id/kvizProgressBar"
         android:visibility="invisible"
         android:progress="100"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -60,9 +60,9 @@
         android:textStyle="bold"
         android:id="@+id/timertext"
         android:layout_marginTop="150dp"
-        app:layout_constraintBottom_toBottomOf="@id/quizProgressBar"
-        app:layout_constraintStart_toStartOf="@id/quizProgressBar"
-        app:layout_constraintEnd_toEndOf="@id/quizProgressBar"
+        app:layout_constraintBottom_toBottomOf="@id/kvizProgressBar"
+        app:layout_constraintStart_toStartOf="@id/kvizProgressBar"
+        app:layout_constraintEnd_toEndOf="@id/kvizProgressBar"
         app:layout_constraintTop_toTopOf="parent"/>
 
 
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toBottomOf="@id/timertext"
         android:text="Who is Elon Musk?"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/quizquestion"
+        android:id="@+id/kvizquestion"
         android:gravity="center_horizontal"
         android:textSize="20sp"
         android:textAlignment="center"
@@ -100,7 +100,7 @@
         android:fontFamily="@font/work_sans"
         android:textColor="@color/white"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/quizquestion"
+        app:layout_constraintTop_toBottomOf="@id/kvizquestion"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
@@ -152,7 +152,7 @@
         android:visibility="invisible"
         android:textSize="15sp"
         android:fontFamily="@font/work_sans"
-        android:id="@+id/quizanswerfeedback"
+        android:id="@+id/kvizanswerfeedback"
         android:layout_marginTop="20dp"/>
 
 
@@ -164,14 +164,14 @@
         android:layout_marginRight="35dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/quiznext"
+        android:id="@+id/kviznext"
         android:text="Next"
         android:visibility="invisible"
         android:background="@drawable/primary_btn_bg"
         android:fontFamily="@font/work_sans"
         android:textColor="@color/white"
         android:gravity="center_horizontal"
-        app:layout_constraintTop_toBottomOf="@id/quizanswerfeedback"
+        app:layout_constraintTop_toBottomOf="@id/kvizanswerfeedback"
         app:layout_constraintStart_toStartOf="parent"/>
 
 
