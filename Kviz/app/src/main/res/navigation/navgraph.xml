@@ -33,10 +33,6 @@
         <action
             android:id="@+id/action_detailFragment_to_kvizFragment"
             app:destination="@id/kvizFragment" />
-        <argument
-            android:name="Position"
-            app:argType="integer"
-            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/kvizFragment"

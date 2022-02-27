@@ -29,9 +29,10 @@ import java.util.List;
 
 public class ListFragment extends Fragment implements KvizAdapter.OnItemClicked {
 
-    NavController navController;
+
     RecyclerView recyclerView;
     KvizAdapter adapter;
+    NavController navController;
     ProgressBar progressBar;
     Animation fade_in, fade_out;
     KvizViewModel viewModel;
@@ -63,26 +64,30 @@ public class ListFragment extends Fragment implements KvizAdapter.OnItemClicked 
         recyclerView.setHasFixedSize(true);
 
         progressBar = view.findViewById(R.id.listprogressbar);
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
         viewModel = new ViewModelProvider(getActivity()).get(KvizViewModel.class);
         viewModel.getLiveDatafromFireStore().observe(getViewLifecycleOwner(), new Observer<List<KvizModel>>() {
             @Override
             public void onChanged(List<KvizModel> kvizModels) {
                 adapter.setKvizModelData(kvizModels);
-                adapter.notifyDataSetChanged();
+
                 recyclerView.setAnimation(fade_in);
                 progressBar.setAnimation(fade_out);
-
-
+                adapter.notifyDataSetChanged();
             }
         });
     }
 
-
     @Override
     public void somethingClicked(int position) {
-       // ListFragmentDirections.ActionListFragmentToDetailFragment action = ListFragmentDirections.actionListFragmentToDetailFragment();
+       //ListFragmentDirections.ActionListFragmentToDetailFragment action = ListFragmentDirections.actionListFragmentToDetailFragment();
         //action.setPosition(position);
-       // navController.navigate(action);
+        //navController.navigate(action);
     }
 
 

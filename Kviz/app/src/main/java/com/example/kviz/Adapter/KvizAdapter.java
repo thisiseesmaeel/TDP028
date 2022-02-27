@@ -81,7 +81,7 @@ public class KvizAdapter extends RecyclerView.Adapter<KvizAdapter.MyHolder>{
         }
 
     }
-    public interface  OnItemClicked {
+    public interface OnItemClicked {
         void somethingClicked(int position);
     }
 }
