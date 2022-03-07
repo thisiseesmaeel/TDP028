@@ -5,4 +5,6 @@
     <string name="developed_by_ismailsafwat">Developed by @ismailsafwat</string>
     <string name="starting">Be patient...</string>
     <string name="kviz_me">Kviz Me</string>
+    <string name="todo">TODO</string>
+    <string name="kviz_title">Kviz Title</string>
 </resources>

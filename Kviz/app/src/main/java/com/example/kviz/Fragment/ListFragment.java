@@ -85,7 +85,7 @@ public class ListFragment extends Fragment implements KvizAdapter.OnItemClicked 
 
     @Override
     public void somethingClicked(int position) {
-       //ListFragmentDirections.ActionListFragmentToDetailFragment action = ListFragmentDirections.actionListFragmentToDetailFragment();
+       // ListFragmentDirections.ActionListFragmentToDetailFragment action = ListFragmentDirections.actionListFragmentToDetailFragment();
         //action.setPosition(position);
         //navController.navigate(action);
     }

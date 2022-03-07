@@ -41,7 +41,7 @@ public class KvizAdapter extends RecyclerView.Adapter<KvizAdapter.MyHolder>{
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
 
 
-        holder.kvizname.setText(kvizModelList.get(position).getKvizname());
+        holder.kvizrubrik.setText(kvizModelList.get(position).getKvizname());
         holder.description.setText(kvizModelList.get(position).getDescription());
 
         Glide.with(holder.itemView.getContext()).load(kvizModelList.get(position).getImage())
@@ -60,14 +60,14 @@ public class KvizAdapter extends RecyclerView.Adapter<KvizAdapter.MyHolder>{
 
     class MyHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView description, kvizname;
+        TextView description, kvizrubrik;
         ImageView image;
         Button button;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
             description = itemView.findViewById(R.id.listkvizdesc);
-            kvizname = itemView.findViewById(R.id.layoutkviztitle);
+            kvizrubrik = itemView.findViewById(R.id.layoutkviztitle);
             image = itemView.findViewById(R.id.listimage);
             button = itemView.findViewById(R.id.takekvizBtn);
 

@@ -12,8 +12,6 @@
         android:label="StartFragment" >
         <action
             android:id="@+id/action_startFragment_to_listFragment"
-            app:popUpToInclusive="true"
-            app:popUpTo="@id/startFragment"
             app:destination="@id/listFragment" />
     </fragment>
     <fragment
@@ -33,6 +31,10 @@
         <action
             android:id="@+id/action_detailFragment_to_kvizFragment"
             app:destination="@id/kvizFragment" />
+        <argument
+            android:name="Position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/kvizFragment"
@@ -42,6 +44,17 @@
         <action
             android:id="@+id/action_kvizFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
+        <argument
+            android:name="kvizname"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="kvizid"
+            android:defaultValue="null" />
+        <argument
+            android:name="fragor"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"

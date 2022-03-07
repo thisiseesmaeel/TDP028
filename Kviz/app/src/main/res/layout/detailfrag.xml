@@ -11,7 +11,7 @@
         android:id="@+id/detailimage"
         android:layout_width="0dp"
         android:layout_height="200dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/todo"
         android:src="@drawable/placeholder_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -43,7 +43,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
                 android:fontFamily="@font/crimson_text"
-                android:text="Kviz Title"
+                android:text="@string/kviz_title"
                 android:textColor="#455A64"
                 android:textSize="25sp" />
 
@@ -64,88 +64,88 @@
                 android:textColor="@color/white"/>
 
 
-
             <TextView
+                android:id="@+id/detailleveltext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/detailkvizdesc"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="100dp"
                 android:text="Beginner"
-                android:layout_alignParentRight="true"
-                android:id="@+id/detailleveltext"
-                android:textSize="15sp"
-                android:layout_below="@id/detailkvizdesc"/>
+                android:textSize="15sp" />
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="100dp"
-                android:layout_alignParentRight="true"
-                android:text="10"
                 android:id="@+id/detailquestionstext"
-                android:textSize="15sp"
-                android:layout_below="@id/detailleveltext"/>
-
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/detailleveltext"
+                android:layout_alignParentRight="true"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="100dp"
-                android:layout_alignParentRight="true"
-                android:text="N/A"
+                android:text="10"
+                android:textSize="15sp" />
+
+
+            <TextView
                 android:id="@+id/detaillastscoretext"
-                android:textSize="15sp"
-                android:layout_below="@id/detailquestions"/>
-
-
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailquestions"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="100dp"
+                android:text="N/A"
+                android:textSize="15sp" />
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="100dp"
-                android:text="Level"
                 android:id="@+id/detaillevel"
-                android:textSize="15sp"
-                android:layout_below="@id/detailkvizdesc"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detailkvizdesc"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                android:text="Level"
+                android:textColor="#4E342E"
+                android:textSize="15sp" />
 
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="100dp"
-                android:text="Questions"
                 android:id="@+id/detailquestions"
-                android:textSize="15sp"
-                android:layout_below="@id/detaillevel"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/detaillevel"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="4dp"
+                android:text="Questions"
+                android:textSize="15sp" />
 
 
             <TextView
+                android:id="@+id/detaillastscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_below="@id/detailquestions"
                 android:layout_marginLeft="100dp"
+                android:layout_marginTop="4dp"
                 android:text="Last Score"
-                android:id="@+id/detaillastscore"
-                android:textSize="15sp"
-                android:layout_below="@id/detailquestions"/>
-
+                android:textSize="15sp" />
 
 
             <Button
+                android:id="@+id/detailtakekvizbutton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
                 android:layout_below="@id/detaillastscore"
-                android:text="Take Kviz"
-                android:id="@+id/detailtakekvizbutton"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/white" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Take Kviz"
+                android:textColor="#3E2723" />
 
 
 
