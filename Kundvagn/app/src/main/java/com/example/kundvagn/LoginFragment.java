@@ -106,7 +106,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 if (v.isClickable()) {
 
-                    navController.navigate(R.id.action_loginFragment_to_registerFragment);
+                    navController.navigate(R.id.action_loginFragment2_to_registerFragment2);
                 }
 
             }
@@ -131,7 +131,7 @@ public class LoginFragment extends Fragment {
 
                     // login and take me to product fragment.
 
-                    navController.navigate(R.id.action_loginFragment_to_productsFragment);
+                    navController.navigate(R.id.action_loginFragment2_to_productFragment);
                     Toast.makeText(getContext(), "Signed In", Toast.LENGTH_SHORT).show();
 
                 }
@@ -150,7 +150,7 @@ public class LoginFragment extends Fragment {
 
         if (firebaseUser!=null) {
 
-            navController.navigate(R.id.action_loginFragment_to_productsFragment);
+            navController.navigate(R.id.action_loginFragment2_to_productFragment);
 
 
 

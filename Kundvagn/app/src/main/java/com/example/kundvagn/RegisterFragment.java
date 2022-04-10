@@ -106,7 +106,7 @@ public class RegisterFragment extends Fragment {
                     /// if user has an account
                     /// take back the user to login fragment.
 
-                    navController.navigate(R.id.action_registerFragment_to_loginFragment);
+                   navController.navigate(R.id.action_registerFragment2_to_loginFragment2);
                 }
 
             }
@@ -151,7 +151,7 @@ public class RegisterFragment extends Fragment {
                     // if the user is registered already
                     // take the user to product list
 
-                    navController.navigate(R.id.action_registerFragment_to_productsFragment);
+                    navController.navigate(R.id.action_registerFragment2_to_productFragment);
 
 
 

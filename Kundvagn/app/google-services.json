@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "631079643937",
+    "project_id": "kundvagn-c29d1",
+    "storage_bucket": "kundvagn-c29d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631079643937:android:7a6993da990d9d9d236c60",
+        "android_client_info": {
+          "package_name": "com.example.kundvagn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631079643937-rv4dt2r4nfl2analcm5f4ndmf5pbkt3q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-IgnFIImMmIXkcWKTBtuF3svCzVrZQY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631079643937-rv4dt2r4nfl2analcm5f4ndmf5pbkt3q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
