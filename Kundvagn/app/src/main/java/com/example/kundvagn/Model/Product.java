@@ -6,16 +6,17 @@ public class Product {
 
     @DocumentId
     String productid;
-    String rubrik, bildUrl;
+    String rubrik, bildUrl, beskrivning;
     int pris, antal;
 
     public Product() {
     }
 
-    public Product(String productid, String rubrik, String bildUrl, int pris, int antal) {
+    public Product(String productid, String rubrik, String bildUrl, String beskrivning, int pris, int antal) {
         this.productid = productid;
         this.rubrik = rubrik;
         this.bildUrl = bildUrl;
+        this.beskrivning = beskrivning;
         this.pris = pris;
         this.antal = antal;
     }
@@ -58,5 +59,13 @@ public class Product {
 
     public void setAntal(int antal) {
         this.antal = antal;
+    }
+
+    public String getBeskrivning() {
+        return beskrivning;
+    }
+
+    public void setBeskrivning(String beskrivning) {
+        this.beskrivning = beskrivning;
     }
 }

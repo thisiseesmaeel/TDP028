@@ -20,17 +20,17 @@
 
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/productmainimage"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:id="@+id/productmainiamge"/>
+                android:layout_height="80dp" />
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/productmainiamge"
+                android:layout_toRightOf="@id/productmainimage"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/proudcttitlte"
+                android:id="@+id/producttitle"
                 android:layout_marginRight="10dp"
                 android:text="Title"
                 android:textSize="20sp"/>
@@ -41,8 +41,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/proudcttitlte"
-                android:layout_toRightOf="@id/productmainiamge"
+                android:layout_below="@id/producttitle"
+                android:layout_toRightOf="@id/productmainimage"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/productdescriptionmain"
