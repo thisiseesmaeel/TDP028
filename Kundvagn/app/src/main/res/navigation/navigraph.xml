@@ -54,6 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailFrag"
+        android:name="com.example.kundvagn.ProductDetailFrag"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail">
         <action
@@ -79,5 +80,9 @@
             android:name="Description"
             android:defaultValue="null"
             app:argType="string" />
+        <argument
+            android:name="Price"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

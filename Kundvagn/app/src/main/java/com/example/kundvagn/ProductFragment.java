@@ -1,8 +1,10 @@
 package com.example.kundvagn;
 
-import static com.example.kundvagn.ProductFragmentDirections.ActionProductFragmentToProductDetailFrag.*;
-
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,11 +15,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.kundvagn.Adapter.ProductAdapter;
 import com.example.kundvagn.MVVM.ProductViewModel;
@@ -91,15 +88,15 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
     // For going to next fragment product detail.
     @Override
     public void OnProClicked(List<Product> productList, int position) {
-
-       com.example.kundvagn.ProductFragmentDirections.ActionProductFragmentToProductDetailFrag
-                actions = com.example.kundvagn.ProductFragmentDirections.actionProductFragmentToProductDetailFrag();
+        ProductFragmentDirections.ActionProductFragmentToProductDetailFrag
+                actions = ProductFragmentDirections.actionProductFragmentToProductDetailFrag();
 
         actions.setTitle(productList.get(position).getRubrik());
         actions.setDescription(productList.get(position).getBeskrivning());
         actions.setProductid(productList.get(position).getProductid());
         actions.setPosition(position);
         actions.setImageUrl(productList.get(position).getBildUrl());
+        actions.setPrice(productList.get(position).getPris());
 
         navController.navigate(actions);
 
