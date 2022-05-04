@@ -11,16 +11,17 @@
         android:layout_height="match_parent" />
 
 
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMainProductPage"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/cart"
-        android:layout_margin="40dp"
-        android:id="@+id/fabMainProductPage"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/cart" />
 
 
     <TextView

@@ -41,9 +41,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductH
         @Override
         public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
 
-            holder.titleofproduct.setText(productList.get(position).getRubrik());
-            holder.descriptionofproduct.setText(productList.get(position).getBeskrivning());
-            Glide.with(holder.itemView.getContext()).load(productList.get(position).getBildUrl()).centerCrop().into(holder.circleImageView);
+            holder.titleofproduct.setText(productList.get(position).getTitle());
+            holder.descriptionofproduct.setText(productList.get(position).getDesc());
+            Glide.with(holder.itemView.getContext()).load(productList.get(position).getImageUrl()).centerCrop().into(holder.circleImageView);
 
 
         }

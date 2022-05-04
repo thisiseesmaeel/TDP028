@@ -42,6 +42,10 @@
         <action
             android:id="@+id/action_productFragment_to_productDetailFrag"
             app:destination="@id/productDetailFrag" />
+        <argument
+            android:name="Quantity"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/vagnFragment"

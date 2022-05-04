@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.example.kundvagn.Model.Product;
@@ -21,6 +24,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.HashMap;
 
 import javax.annotation.Nullable;
 
@@ -36,6 +41,8 @@ public class ProductDetailFrag extends Fragment {
     int position = 0;
     int finalprice = 0;
     int price = 0;
+
+    NavController navController;
 
     public ProductDetailFrag() {
         // Required empty public constructor
@@ -67,6 +74,7 @@ public class ProductDetailFrag extends Fragment {
         descview = view.findViewById(R.id.productdetaildetail);
         priceview = view.findViewById(R.id.totalPriceproductdetail);
         imageView = view.findViewById(R.id.productdetailimage);
+        navController = Navigation.findNavController(view);
 
         // här hämtar vi argumenten eller värdena
         imageUrl = ProductDetailFragArgs.fromBundle(getArguments()).getImageUrl();
@@ -76,16 +84,18 @@ public class ProductDetailFrag extends Fragment {
         price = ProductDetailFragArgs.fromBundle(getArguments()).getPrice();
         productid = ProductDetailFragArgs.fromBundle(getArguments()).getProductid();
 
+
+
         titleview.setText(title);
         descview.setText(desc);
         Glide.with(getActivity()).load(imageUrl).centerCrop().into(imageView);
-        priceview.setText("Pris för 1 vara är: " + String.valueOf(price));
+        priceview.setText("Pris för 1 vara är: " + price);
 
         firestore.collection("Products").document(productid).addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
                 Product product = value.toObject(Product.class);
-                String latestquantity = String.valueOf(product.getAntal());
+                String latestquantity = String.valueOf(product.getQuantity());
 
                 // här visar vi antal varor
                 quantitydisplay.setText(latestquantity);
@@ -102,8 +112,8 @@ public class ProductDetailFrag extends Fragment {
 
                 quantity = Integer.parseInt(quantitydisplay.getText().toString());
                 quantity++;
-                finalprice = quantity * price;
-                firestore.collection("Products").document(productid).update("antal", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                firestore.collection("Products").document(productid).update("quantity", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
 
@@ -111,8 +121,8 @@ public class ProductDetailFrag extends Fragment {
                     }
                 });
 
-
-                priceview.setText("Total kostnad är " + "x" + String.valueOf(quantity) + String.valueOf(finalprice));
+                finalprice = quantity * price;
+                priceview.setText("Total kostnad är " + finalprice + " x " + quantity);
 
             }
         });
@@ -130,7 +140,7 @@ public class ProductDetailFrag extends Fragment {
                 } else {
                     quantity--;
 
-                    firestore.collection("Products").document(productid).update("antal", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    firestore.collection("Products").document(productid).update("quantity", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -139,13 +149,54 @@ public class ProductDetailFrag extends Fragment {
                     });
 
                     finalprice = quantity * price;
-                    priceview.setText("Total kostnad är " + "x" + String.valueOf(quantity) + String.valueOf(finalprice));
+                    priceview.setText("Total kostnad är " + finalprice+ " x " + quantity);
+                }
+
+            }
+        });
+
+        addtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(quantity == 0){
+
+                    navController.navigate(R.id.action_productDetailFrag_to_productFragment);
+                    Toast.makeText(getContext(), "Ingenting lades till kundvagnen", Toast.LENGTH_LONG).show();
+                }
+                else {
+
+                    AddedInCart();
+                    ProductDetailFragDirections.ActionProductDetailFragToProductFragment
+                            actions = ProductDetailFragDirections.actionProductDetailFragToProductFragment();
+                    navController.navigate(actions);
+                    Toast.makeText(getContext(), "Lades till kundvagnen", Toast.LENGTH_LONG).show();
+
+                    
+
                 }
 
             }
         });
 
 
+    }
+
+    private void AddedInCart() {
+
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("quantity", quantity);
+        hashMap.put("price", finalprice);
+        hashMap.put("title", title);
+        hashMap.put("imageUrl", imageUrl);
+        hashMap.put("productid", productid);
+
+        firestore.collection("Cart" + userid).document(title).set(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+            }
+        });
 
     }
 }

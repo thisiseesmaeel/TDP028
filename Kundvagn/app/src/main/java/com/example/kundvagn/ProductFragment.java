@@ -18,11 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kundvagn.Adapter.ProductAdapter;
 import com.example.kundvagn.MVVM.ProductViewModel;
+import com.example.kundvagn.Model.Cart;
 import com.example.kundvagn.Model.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductFragment extends Fragment implements ProductAdapter.onClickedProduct {
@@ -37,9 +43,10 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firestore;
     String userid;
+    int sum = 0;
 
     NavController navController;
-
+    List<Integer> savequantity = new ArrayList<>();
 
     public ProductFragment() {
 
@@ -70,6 +77,44 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
         recyclerView = view.findViewById(R.id.recyclerviewproduct);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        sum = ProductFragmentArgs.fromBundle(getArguments()).getQuantity();
+        quantityinvagn.setText(String.valueOf(sum));
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_productFragment_to_vagnFragment);
+            }
+        });
+
+
+
+        firestore.collection("Cart" + userid).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                assert value != null;
+                for(DocumentSnapshot ds: value.getDocuments()) {
+                Cart cart = ds.toObject(Cart.class);
+
+                int quantitycounter = cart.getQuantity();
+
+                savequantity.add(quantitycounter);
+
+
+            }
+
+                for(int i = 0; i < savequantity.size(); i++){
+                    sum += Integer.parseInt(String.valueOf(savequantity.get(i)));
+
+                }
+                quantityinvagn.setText(String.valueOf(sum));
+                sum = 0;
+                savequantity.clear();
+
+            }
+        });
+
 
         viewModel = new ViewModelProvider(getActivity()).get(ProductViewModel.class);
         viewModel.getAllProducts().observe(getViewLifecycleOwner(), new Observer<List<Product>>() {
@@ -91,17 +136,23 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
         ProductFragmentDirections.ActionProductFragmentToProductDetailFrag
                 actions = ProductFragmentDirections.actionProductFragmentToProductDetailFrag();
 
-        actions.setTitle(productList.get(position).getRubrik());
-        actions.setDescription(productList.get(position).getBeskrivning());
+        actions.setTitle(productList.get(position).getTitle());
+        actions.setDescription(productList.get(position).getDesc());
         actions.setProductid(productList.get(position).getProductid());
         actions.setPosition(position);
-        actions.setImageUrl(productList.get(position).getBildUrl());
-        actions.setPrice(productList.get(position).getPris());
+        actions.setImageUrl(productList.get(position).getImageUrl());
+        actions.setPrice(productList.get(position).getPrice());
 
         navController.navigate(actions);
 
 
 
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        sum = 0;
     }
 }

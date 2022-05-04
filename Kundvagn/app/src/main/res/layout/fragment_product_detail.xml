@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="10dp"
-                android:text="Product Title"
+                android:text="@string/product_title"
                 android:gravity="center_horizontal"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -44,7 +44,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Product Detail"
+                android:text="@string/product_detail"
                 android:id="@+id/productdetaildetail"/>
 
 

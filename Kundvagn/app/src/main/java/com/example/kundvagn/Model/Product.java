@@ -6,19 +6,19 @@ public class Product {
 
     @DocumentId
     String productid;
-    String rubrik, bildUrl, beskrivning;
-    int pris, antal;
+    String title, imageUrl, desc;
+    int price, quantity;
 
     public Product() {
     }
 
-    public Product(String productid, String rubrik, String bildUrl, String beskrivning, int pris, int antal) {
+    public Product(String productid, String title, String imageUrl, String desc, int price, int quantity) {
         this.productid = productid;
-        this.rubrik = rubrik;
-        this.bildUrl = bildUrl;
-        this.beskrivning = beskrivning;
-        this.pris = pris;
-        this.antal = antal;
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.desc = desc;
+        this.price = price;
+        this.quantity = quantity;
     }
 
     public String getProductid() {
@@ -29,43 +29,44 @@ public class Product {
         this.productid = productid;
     }
 
-    public String getRubrik() {
-        return rubrik;
+    public String getTitle() {
+        return title;
     }
 
-    public void setRubrik(String rubrik) {
-        this.rubrik = rubrik;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getBildUrl() {
-        return bildUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setBildUrl(String bildUrl) {
-        this.bildUrl = bildUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public int getPris() {
-        return pris;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setPris(int pris) {
-        this.pris = pris;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public int getAntal() {
-        return antal;
+    public int getPrice() {
+        return price;
     }
 
-    public void setAntal(int antal) {
-        this.antal = antal;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public String getBeskrivning() {
-        return beskrivning;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setBeskrivning(String beskrivning) {
-        this.beskrivning = beskrivning;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
+
 }
