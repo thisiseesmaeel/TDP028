@@ -130,7 +130,7 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
 
 
 
-    // For going to next fragment product detail.
+    // För att gå till nästa fragment product detail.
     @Override
     public void OnProClicked(List<Product> productList, int position) {
         ProductFragmentDirections.ActionProductFragmentToProductDetailFrag

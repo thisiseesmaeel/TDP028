@@ -113,6 +113,9 @@ public class ProductDetailFrag extends Fragment {
                 quantity = Integer.parseInt(quantitydisplay.getText().toString());
                 quantity++;
 
+                finalprice = quantity * price;
+                priceview.setText("Total kostnad är " + finalprice + " x " + quantity);
+
                 firestore.collection("Products").document(productid).update("quantity", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -121,8 +124,6 @@ public class ProductDetailFrag extends Fragment {
                     }
                 });
 
-                finalprice = quantity * price;
-                priceview.setText("Total kostnad är " + finalprice + " x " + quantity);
 
             }
         });
@@ -139,6 +140,8 @@ public class ProductDetailFrag extends Fragment {
                     finalprice = 0;
                 } else {
                     quantity--;
+                    finalprice = quantity * price;
+                    priceview.setText("Total kostnad är " + finalprice+ " x " + quantity);
 
                     firestore.collection("Products").document(productid).update("quantity", quantity).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -148,8 +151,7 @@ public class ProductDetailFrag extends Fragment {
                         }
                     });
 
-                    finalprice = quantity * price;
-                    priceview.setText("Total kostnad är " + finalprice+ " x " + quantity);
+
                 }
 
             }
