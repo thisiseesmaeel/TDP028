@@ -1,6 +1,11 @@
 package com.example.kundvagn;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -9,13 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.kundvagn.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
@@ -31,6 +29,9 @@ public class LoginFragment extends Fragment {
     NavController navController;
 
 
+
+
+
     FirebaseFirestore firestore;
     FirebaseAuth auth;
     TextInputLayout  etemail, etpassword;
@@ -41,7 +42,17 @@ public class LoginFragment extends Fragment {
         // Required empty public constructor
     }
 
-     @Override
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -142,6 +153,8 @@ public class LoginFragment extends Fragment {
 
     // it should directly take us to product fragment
     // if you have signed in once.
+
+
 
     @Override
     public void onStart() {

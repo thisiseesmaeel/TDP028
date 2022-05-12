@@ -8,13 +8,18 @@
         android:id="@+id/loginFragment2"
         android:name="com.example.kundvagn.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login"
+        tools:ignore="ExtraText">
         <action
             android:id="@+id/action_loginFragment2_to_registerFragment2"
             app:destination="@id/registerFragment2" />
         <action
             android:id="@+id/action_loginFragment2_to_productFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/loginFragment2"
             app:destination="@id/productFragment" />
+        <!--app:popUpTo  är för att när man trycker på tillbaka knappen
+        så går man till hemskärmen i mobilen-->
     </fragment>
     <fragment
         android:id="@+id/registerFragment2"

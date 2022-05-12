@@ -17,10 +17,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total"
+        android:text="@string/total"
         android:textSize="20sp"
         android:layout_below="@id/recyclerviewcart"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginStart="10dp"/>
 
 
     <TextView
@@ -30,8 +30,9 @@
         android:id="@+id/totalPriceordercart"
         android:gravity="right"
         android:textSize="20sp"
-        android:layout_marginRight="10dp"
-        android:layout_below="@id/recyclerviewcart" />
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/recyclerviewcart"
+        tools:ignore="RtlHardcoded" />
 
 
     <Button
@@ -40,7 +41,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="60dp"
-        android:text="Check Out"
+        android:text="@string/check_out"
         android:id="@+id/buttoncheckout"
         android:layout_alignParentBottom="true"/>
 

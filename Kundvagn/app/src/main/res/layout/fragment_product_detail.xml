@@ -22,10 +22,12 @@
 
 
             <ImageView
+                android:id="@+id/productdetailimage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:id="@+id/productdetailimage"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ImageContrastCheck"
+                android:contentDescription="logo-background" />
 
 
             <TextView
@@ -57,10 +59,11 @@
 
 
                 <Button
+                    android:id="@+id/addquantity"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:text="+"
-                    android:id="@+id/addquantity"/>
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
 
@@ -74,12 +77,12 @@
                     android:layout_marginLeft="15dp"/>
 
 
-
                 <Button
+                    android:id="@+id/subquantity"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:text="-"
-                    android:id="@+id/subquantity"/>
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
 
@@ -94,13 +97,13 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginLeft="60dp"
                 android:layout_marginTop="20dp"
-                android:text="Add to Cart"
+                android:text="@string/add_to_cart"
                 android:id="@+id/buttonaddtocart"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Total Price"
+                android:text="@string/total_price"
                 android:gravity="center"
                 android:textSize="20sp"
                 android:id="@+id/totalPriceproductdetail"/>

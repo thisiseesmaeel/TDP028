@@ -98,11 +98,11 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
                 Cart cart = ds.toObject(Cart.class);
 
                 int quantitycounter = cart.getQuantity();
-
+                // Lägg till alla integer i Integer arrayList
                 savequantity.add(quantitycounter);
-
-
             }
+
+
 
                 for(int i = 0; i < savequantity.size(); i++){
                     sum += Integer.parseInt(String.valueOf(savequantity.get(i)));
@@ -110,7 +110,7 @@ public class ProductFragment extends Fragment implements ProductAdapter.onClicke
                 }
                 quantityinvagn.setText(String.valueOf(sum));
                 sum = 0;
-                savequantity.clear();
+                savequantity.clear(); // Föregående antal produkter är rensade.
 
             }
         });

@@ -4,17 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.43020833333333336" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/drawable/google.xml" value="0.224" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21822916666666667" />
+        <entry key="app/src/main/res/layout/activity_second.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/cartliststyle.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/del2.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/del3.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/fragment_product.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_product_detail.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/fragment_vagn.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/productstyleslist.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2655" />
       </map>
     </option>
   </component>

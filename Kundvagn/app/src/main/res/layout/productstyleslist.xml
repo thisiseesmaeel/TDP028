@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/productmainimage"
+                android:layout_toEndOf="@id/productmainimage"
                 android:layout_marginLeft="10dp"
                 android:id="@+id/producttitle"
                 android:layout_marginRight="10dp"
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/producttitle"
-                android:layout_toRightOf="@id/productmainimage"
+                android:layout_toEndOf="@id/productmainimage"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:id="@+id/productdescriptionmain"

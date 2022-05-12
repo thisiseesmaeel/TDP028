@@ -174,7 +174,7 @@ public class ProductDetailFrag extends Fragment {
                     navController.navigate(actions);
                     Toast.makeText(getContext(), "Lades till kundvagnen", Toast.LENGTH_LONG).show();
 
-                    
+
 
                 }
 
