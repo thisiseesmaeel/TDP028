@@ -34,8 +34,8 @@ Kundvagn has the following features:
 
 
 ## Screencast
-* [App-demo](https://www.google.com)
-* [Kodgenomgång](https://www.google.com)
+* [App-demo](https://youtu.be/ITkh94enMJ0)
+* [Kodgenomgång](https://youtu.be/C2looUzcPgk)
 
 
 
