@@ -1,5 +1,9 @@
 # TDP028-Android Project
 
+This course focuses on the following aspects of software development: how marketing and sales affect software development; techniques for communication, distribution, and measurement of usage in software and specifically apps; self-ability for planning/developing and executing an Android project; concise presentation formats; and literature search for software projects. The main focus of the course is the individual's own work in building an app that also includes functionality for distribution and measurement of usage. Starting in 2021, better project management support is offered in the form of optional milestones, and a larger, broader selection of scoring project requirements. We will also be placing greater emphasis on technical requirements to better reach the knowledge objectives of the course. 
+
+The presentation format for the final report has been modified to favor a portfolio. Here, the product's core value and how usage and distribution functionality has been created in the project should be presented.
+
 ## Details
 
 
